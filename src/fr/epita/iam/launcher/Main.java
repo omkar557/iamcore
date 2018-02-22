@@ -43,11 +43,11 @@ public class Main {
         
         //For User Authentication 
         IdentityJDBCDAO identityDAO = new IdentityJDBCDAO();
-        
-        System.out.println("Please enter the Username: ");
+        System.out.println("Please enter the Username and Password for authentication ");
+        System.out.println("Username: ");
         username = scan.nextLine();
         
-        System.out.println("Please enter the Password: ");
+        System.out.println("Password: ");
         password = scan.nextLine();
         
         /**

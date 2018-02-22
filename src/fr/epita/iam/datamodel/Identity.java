@@ -1,5 +1,13 @@
 package fr.epita.iam.datamodel;
 
+/**
+ * This class is inside Data Model Package.
+ * This class is responsible for creating Identity with required parameters,
+ * like UID, Email ID and Display name
+ * 
+ * @author Omkar Yadav And Sohel Khan Pathan
+ *
+ */
 public class Identity {
 	
 	private String displayName; //Display name for the Identity

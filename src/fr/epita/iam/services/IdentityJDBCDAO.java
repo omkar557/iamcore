@@ -8,12 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import fr.epita.iam.datamodel.Identity;
 import fr.epita.iam.exceptions.AuthenticationException;
 import fr.epita.iam.exceptions.IdentityCreationException;
 import fr.epita.iam.exceptions.IdentityDeletionException;
 import fr.epita.iam.exceptions.IdentityListException;
 import fr.epita.iam.exceptions.IdentityUpdationException;
+import fr.epita.iam.services.Configuration;
 
 /**
  * 
@@ -25,7 +28,8 @@ import fr.epita.iam.exceptions.IdentityUpdationException;
 public class IdentityJDBCDAO implements IdentityDAO{
 	
    //1. Setting connection String
-   private final String connectionString = "jdbc:derby://localhost:1527/iam-b;create=true";			
+//   private final String connectionString = "jdbc:derby://localhost:1527/iam-b;create=true";	
+   private final String connectionString = Configuration.getInstance().getProperty("db.host");   
 						
    //2. Assigning User name
    private final String userName = "root";
@@ -177,7 +181,7 @@ public class IdentityJDBCDAO implements IdentityDAO{
     		   		
     	}
     	
-    	catch (ClassNotFoundException | SQLException e) {
+    	catch ( ClassNotFoundException | SQLException e) {
     		// Raise Custom Identity Creation exception 
 			final IdentityCreationException businessException = new IdentityCreationException(identity, e);
 			throw businessException;
@@ -250,7 +254,7 @@ public class IdentityJDBCDAO implements IdentityDAO{
      * An identity will be deleted from database table "Identities"
      * 
      * @param identity ::  Identity with UID, Display Name and Email ID.
-     * @throws IdentityUpdationException  :: Exception List
+     * @throws IdentityDeletionException  :: Exception List
      */
     public void identity_delete(Identity identity) throws IdentityDeletionException {
     	
