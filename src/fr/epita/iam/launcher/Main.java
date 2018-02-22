@@ -43,6 +43,7 @@ public class Main {
         
         //For User Authentication 
         IdentityJDBCDAO identityDAO = new IdentityJDBCDAO();
+        System.out.println("Welcome to IAM System!");
         System.out.println("Please enter the Username and Password for authentication ");
         System.out.println("Username: ");
         username = scan.nextLine();
@@ -63,6 +64,9 @@ public class Main {
            	scan.close();
            	return;
         	}	
+        else{
+        	System.out.println( username + " authorized Successfully.");
+        }
         
         
         boolean iteration = true;
@@ -70,12 +74,15 @@ public class Main {
         
         //Display the Menu on the console
         while(iteration==true){
+        	System.out.println("");
         	System.out.println("IAM system valid operations:");
+        	System.out.println("");
           	System.out.println("1. Create an Identity");
         	System.out.println("2. Update an Identity");
         	System.out.println("3. Delete an Identity");
         	System.out.println("4. List all the Identities");
         	System.out.println("5. Terminate the program.");
+        	System.out.println("");
         	System.out.println("Enter operation to be performed (1,2,3,4,5)");
         	choice = scan.nextLine();
         	

@@ -299,39 +299,6 @@ public class IdentityJDBCDAO implements IdentityDAO{
     
     public List<Identity> identity_list(Identity criteria) throws IdentityListException {
     	
-    	
-//    	List<Identity> identities = new ArrayList<>();
-//		try {
-//			if(criteria == null){
-//				criteria = new Identity("","","");
-//			}
-//			Connection connection = getConn();
-//			
-//			PreparedStatement preparedStatement = connection.prepareStatement(selectQueryForListing);
-//			preparedStatement.setString(3, criteria.getUid());
-//			preparedStatement.setString(1, criteria.getDisplayName());
-//			preparedStatement.setString(2, criteria.getEmail());  
-//			
-//			ResultSet rs = preparedStatement.executeQuery();
-//			while (rs.next()) {
-//				String displayName = rs.getString("DISPLAYNAME");
-//				String uid = rs.getString("UID");
-//				String email = rs.getString("EMAIL");
-//				System.out.println(displayName + uid + email);
-//				Identity identity = new Identity(displayName, email, uid);
-//				identities.add(identity);
-//			}
-//
-//		} catch (ClassNotFoundException | SQLException e) {
-//			final IdentityListException businessException = new IdentityListException(criteria, e);
-//			throw businessException;
-//		}
-//		System.out.println(identities);
-//		return identities;    	
-//    	
-//    }
-//}
-    	
     	final List<Identity> identities = new ArrayList<>();
 		Connection connection = null;
 		try {
@@ -352,17 +319,8 @@ public class IdentityJDBCDAO implements IdentityDAO{
 				identity.setUid(resultSet.getString(1));
 				identities.add(identity);
 				
-				
-//				String displayName = resultSet.getString("DISPLAYNAME");
-//				String uid = resultSet.getString("UID");
-//				String email = resultSet.getString("EMAIL");
-//				Identity identity = new Identity(displayName, email, uid);
-//				System.out.println("displayName"+ "uid"+"email");
-//				System.out.println(identities);
-//				identities.add(identity);
 			}//While loop
-			  			
-//			}//If loop
+
 			if (!rsFlag){
 				//UID does not exist
 				System.out.println("No identity exists for given criteria.");			
